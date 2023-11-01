@@ -1,27 +1,29 @@
-package com.calendar.springcal;
+package com.calendar.springcal.Entities;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+// import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "events")
 public class Event {
-  @ManyToOne
-  @JoinColumn(name = "date_id", nullable = false)
-  private CalendarDate calendarDate;
+
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
+  @Column(name = "event_id")
   public Long id;
   @Column(name = "event_title", nullable = false)
   public String title;
   @Column(name = "event_time", nullable = true)
   public String time;
+
+  Event() {
+  }
 
   Event(String title, String time) {
     this.title = title;
