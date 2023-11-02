@@ -34,6 +34,14 @@ public class Event {
     this.title = title;
   }
 
+  public Long getId() {
+    return this.id;
+  }
+
+  public void setId(Long newId) {
+    this.id = newId;
+  }
+
   public String getTitle() {
     return this.title;
   }

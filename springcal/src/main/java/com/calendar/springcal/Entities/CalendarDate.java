@@ -20,8 +20,6 @@ public class CalendarDate {
   public String id;
   @Column(name = "event_dates", nullable = false)
   public String dateOfEvent;
-  // @Column(name = "dateCreated")
-  // public Date dateCreated;
 
   @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
   @JoinColumn(name = "date_id")
@@ -34,30 +32,33 @@ public class CalendarDate {
     this.events = events;
   }
 
-  // CalendarDate(Date dateOfEvent) {
-  // this.dateOfEvent = dateOfEvent;
-  // }
-
-  // CalendarDate(Date dateOfEvent, List<Event> events) {
-  // this.dateOfEvent = dateOfEvent;
-  // this.events = events;
-  // }
-
   public CalendarDate addEvent(Event event) {
     this.events.add(event);
     return this;
   }
 
-  // public Date getDate() {
-  // return this.dateOfEvent;
-  // }
-
-  // public void setDate(Date newDate) {
-  // this.dateOfEvent = newDate;
-  // }
-
   public List<Event> getEvents() {
     return this.events;
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public String getDateOfEvent() {
+    return this.dateOfEvent;
+  }
+
+  public void setDateOfEvent(String dateOfEvent) {
+    this.dateOfEvent = dateOfEvent;
+  }
+
+  public void setEvents(List<Event> events) {
+    this.events = events;
   }
 
 }
